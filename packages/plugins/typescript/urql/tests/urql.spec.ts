@@ -654,7 +654,7 @@ export function useDefaultValueArgQuery(options?: Omit<Urql.UseQueryArgs<Default
       )) as Types.ComplexPluginOutput;
 
       expect(content.content).toBeSimilarStringTo(`
-      export function useListenToCommentsSubscription<TData = ListenToCommentsSubscription>(options: Omit<Urql.UseSubscriptionArgs<ListenToCommentsSubscriptionVariables>, 'query'> = {}, handler?: Urql.SubscriptionHandler<ListenToCommentsSubscription, TData>) {
+      export function useListenToCommentsSubscription<TData = ListenToCommentsSubscription>(options: Omit<Urql.UseSubscriptionArgs<ListenToCommentsSubscriptionVariables>, 'query'>, handler?: Urql.SubscriptionHandler<ListenToCommentsSubscription, TData>) {
         return Urql.useSubscription<ListenToCommentsSubscription, TData, ListenToCommentsSubscriptionVariables>({ query: ListenToCommentsDocument, ...options }, handler);
       };`);
       await validateTypeScript(content, schema, docs, {});
